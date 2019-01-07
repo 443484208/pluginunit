@@ -1,0 +1,25 @@
+{
+  "name": "pluginunit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/443484208/pluginunit.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "443484208",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/443484208/pluginunit/issues"
+  },
+  "private":false,
+  
+  "homepage": "https://github.com/443484208/pluginunit#readme"
+}
+
