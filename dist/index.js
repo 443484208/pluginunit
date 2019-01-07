@@ -1,6 +1,6 @@
 class gg {
 	//	月前
-	hyCurrent = (day) => {
+	hyCurrent (day) {
 		var newMonth = new Date().getMonth() + 1;
 		var newYear = new Date().getFullYear();
 		var Year = new Date(day).getFullYear();
@@ -24,7 +24,7 @@ class gg {
 		}
 	}
 	//	年月日时分秒
-	getTime = (day) => {
+	getTime  (day) {
 		var d = new Date(day);
 		var year = d.getFullYear();
 		var month = d.getMonth() + 1;
@@ -59,7 +59,7 @@ class gg {
 
 	}
 	//	年月日
-	getTimes = (day) => {
+	getTimes (day)  {
 		var d = new Date(day);
 		var year = d.getFullYear();
 		var month = d.getMonth() + 1;
@@ -250,7 +250,7 @@ class gg {
 		}
 
 	}
-
+//	get请求
 	getJson(url, header = 'application/json; charset=UTF-8') {
 		let p = new Promise(function(resolve, reject) {
 			var xhr = new XMLHttpRequest();
@@ -301,6 +301,7 @@ class gg {
 		})
 		return p;
 	}
+//	大写金额
 	DX(event) {
 		if(!/^(0|[1-9]\d*)(\.\d+)?$/.test(event))
 			return "数据非法";
@@ -339,7 +340,7 @@ class gg {
 	clearCookie(data) {
 		this.setCookie(data, "", -1);
 	}
-	//清除cookie
+	//清除全部cookie
 	clearCookieAll() {
 		var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
 		if(keys) {
@@ -356,7 +357,7 @@ class gg {
 		return JSON.parse(localStorage.getItem(name))
 
 	}
-	//清除LocalStorage
+	//清除全部LocalStorage
 	clearLocalStorage(data) {
 		localStorage.removeItem(data);
 	}
@@ -364,20 +365,20 @@ class gg {
 	clearLocalStorageAll() {
 		localStorage.clear();
 	}
-	//设置LocalStorage
+	//设置sessionStorage
 	setSessionStorage(name, val) {
 		sessionStorage.setItem(name, JSON.stringify(val))
 	}
-	//获取LocalStorage
+	//获取sessionStorage
 	getSessionStorage(name) {
 		return JSON.parse(sessionStorage.getItem(name))
 
 	}
-	//清除LocalStorage
+	//清除sessionStorage
 	clearSessionStorage(data) {
 		sessionStorage.removeItem(data);
 	}
-	//清除LocalStorage
+	//清除全部sessionStorage
 	clearSessionStorageAll() {
 		sessionStorage.clear();
 	}
@@ -422,9 +423,11 @@ class gg {
 		return pos2;
 
 	}
+//	千位符
 	housandDigits(event) {
 		return(event).toLocaleString('en-US');
 	}
+//	替换或全部
 	hyreplace(data, original, originals, manyTimes = false) {
 		if(manyTimes) {
 			var reg = new RegExp(originals, "g")
