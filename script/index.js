@@ -566,5 +566,4 @@ class gg {
 	}
 
 }
-var ajax = new gg();
-export default ajax;
+var hyPluginunit = new gg();
