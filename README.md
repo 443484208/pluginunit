@@ -29,5 +29,11 @@
 28，hyreplace(data, original, originals, manyTimes = false) 替换或全部 
 29，disrupt(a) 打乱数组 
 30，unique(a) 记录数组重复值和位置 
-31，dt(a) 拖动 
+31，dt(a) 拖动 输入id
 32，numSub(num1, num2) 減法运算 千位符都可以计算
+33,duplicateRemovalSet(data,a=0) 数组去重排序 第二个值1的时候是降序
+34,arrayValueSort(data, value) 数组的属性排序大小
+35,deepCopy(Obj) 深拷贝
+36,hasClass(primary, cls)  primary原本的class ,cls是否有这个
+37,addClass(primary, cls)  primary:原本的class, class添加的class
+38,addClass(primary, cls)  primary:原本的class, class删除的class

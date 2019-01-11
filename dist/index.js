@@ -1,6 +1,6 @@
 class gg {
 	//	月前
-	hyCurrent (day) {
+	hyCurrent(day) {
 		var newMonth = new Date().getMonth() + 1;
 		var newYear = new Date().getFullYear();
 		var Year = new Date(day).getFullYear();
@@ -24,7 +24,7 @@ class gg {
 		}
 	}
 	//	年月日时分秒
-	getTime  (day) {
+	getTime(day) {
 		var d = new Date(day);
 		var year = d.getFullYear();
 		var month = d.getMonth() + 1;
@@ -59,7 +59,7 @@ class gg {
 
 	}
 	//	年月日
-	getTimes (day)  {
+	getTimes(day) {
 		var d = new Date(day);
 		var year = d.getFullYear();
 		var month = d.getMonth() + 1;
@@ -250,7 +250,7 @@ class gg {
 		}
 
 	}
-//	get请求
+	//	get请求
 	getJson(url, header = 'application/json; charset=UTF-8') {
 		let p = new Promise(function(resolve, reject) {
 			var xhr = new XMLHttpRequest();
@@ -301,7 +301,7 @@ class gg {
 		})
 		return p;
 	}
-//	大写金额
+	//	大写金额
 	DX(event) {
 		if(!/^(0|[1-9]\d*)(\.\d+)?$/.test(event))
 			return "数据非法";
@@ -423,11 +423,11 @@ class gg {
 		return pos2;
 
 	}
-//	千位符
+	//	千位符
 	housandDigits(event) {
 		return(event).toLocaleString('en-US');
 	}
-//	替换或全部
+	//	替换或全部
 	hyreplace(data, original, originals, manyTimes = false) {
 		if(manyTimes) {
 			var reg = new RegExp(originals, "g")
@@ -456,14 +456,14 @@ class gg {
 		};
 		return obj;
 	}
-//	拖动
+	//	拖动
 	dt(box) {
 		var boxx = document.getElementById(box);
 		boxx.onmousedown = function(ev) {
 			if(ev.srcElement.localName == 'input' || ev.srcElement.localName == 'textarea' || ev.srcElement.localName == 'button' || ev.srcElement.localName == 'i') {
 
 			} else {
-				boxx.style.position='absolute;';
+				boxx.style.position = 'absolute;';
 				var oEvent = ev;
 				//求出鼠标和box的位置差值
 				var x = oEvent.clientX - boxx.offsetLeft;
@@ -501,6 +501,65 @@ class gg {
 				//return false阻止默认事件，解决火狐的bug
 				return false;
 			}
+
+		}
+	}
+	//	数组去重排序
+	duplicateRemovalSet(data, a = 0) {
+		if(a == 0) {
+			return [...new Set(data)].sort(function(a, b) {
+				return a < b ? -1 : 1; // 默认升序
+			})
+		} else {
+			return [...new Set(data)].sort(function(a, b) {
+				return a < b ? 1 : -1; // 降序
+			})
+		}
+	}
+	//  数组的属性排序大小
+	arrayValueSort(data, value) {
+		return data.sort(function(a, b) {
+			return a[value] - b[value]
+		})
+
+	}
+	//	深拷贝
+	deepCopy(Obj) {
+		if(!Obj || typeof Obj !== 'object') {
+			return('您传入的不是对象!!');
+
+		}
+		// 转->解析->返回一步到位
+		return window.JSON ?
+			JSON.parse(JSON.stringify(Obj)) :
+			('您的浏览器不支持 JSON API');
+	}
+	//是否有class
+	hasClass(primary, cls) {
+		var primarys = document.querySelector('.' + primary);
+		if(primarys.classList.contains(cls)) {
+			console.log(primary + '包含' + cls + '这个class');
+		} else {
+			console.log(primary + '不包含' + cls + '这个class');
+
+		}
+	}
+
+	//添加class
+	addClass(primary, cls) {
+		if(document.querySelector('.' + primary)) {
+
+			document.querySelector('.' + primary).classList.add(cls)
+		} else {
+			console.log(primary + '没有这个class！')
+		}
+	}
+
+	//删除class
+	removeClass(primary, cls) {
+		if(primary, cls) {
+			document.querySelector('.' + primary).classList.remove(cls)
+		} else {
 
 		}
 	}
