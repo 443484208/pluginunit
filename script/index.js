@@ -564,6 +564,46 @@ class gg {
 
 		}
 	}
+	// 数组变成树形 id ,和父亲pid	filterTree(arryData);
+	 filterTree(data) {
+		let result = []
+		if (!Array.isArray(data)) {
+			return result
+		}
+		data.forEach(item => {
+			delete item.children;
+		});
+		let map = {};
+		data.forEach(item => {
+			map[item.id] = item;
+		});
+		data.forEach(item => {
+			let parent = map[item.pid];
+			if (parent) {
+				(parent.children || (parent.children = [])).push(item);
+			} else {
+				result.push(item);
+			}
+		});
+		return result;
+	}
+	// 递归找某节点 findId(aaxx, 1) id ,和父亲pid
+		 findId(data, current) {
+			if (!data) {
+				// return; 中断执行
+				return;
+			}
+			for (var i in data) {
+				var item = data[i];
+				if (item.id == current) {
+					window.searId=item;
+					break
+				} else if (item.children && item.children.length > 0) {
+					findId(item.children, current);
+				}
+			}
+				return window.searId
+		}
 
 }
 var hyPluginunit = new gg();
