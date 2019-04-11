@@ -38,3 +38,5 @@
 36  hasClass(primary, cls)  primary原本的class ,cls是否有这个   
 37  addClass(primary, cls)  primary:原本的class, class添加的class   
 38  addClass(primary, cls)  primary:原本的class, class删除的class   
+39  filterTree(arryData)  数组变成树形  arryData数组 父亲pid 自己id  
+40   findId(arry, 1)  递归找某节点  arry树形，1查找id
