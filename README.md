@@ -40,3 +40,8 @@
 38  addClass(primary, cls)  primary:原本的class, class删除的class   
 39  filterTree(arryData)  数组变成树形  arryData数组 父亲pid 自己id  
 40   findId(arry, 1)  递归找某节点  arry树形，1查找id
+41  getStrBirthday(date) 根据生日获取年龄 可以时间戳 时间2018-01-02 ()
+42 validatemobile(mobile)  判断是否为手机号码 可以时间戳 时间2018-01-02 
+43 timeFormats(1554973494,0,1) 	//type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年yearType=1
+		
+	
