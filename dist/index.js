@@ -616,10 +616,9 @@ class gg {
 			} else {
 				strBirthday = new Date(strBirthday);
 			}
-		}
 	} else {
 		// 不能为空
-		return
+		return 
 	}
 	var returnAge;
 	var birthYear = strBirthday.getFullYear();
