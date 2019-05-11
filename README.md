@@ -1,7 +1,7 @@
-#地址是[git地址](https://github.com/443484208/pluginunit)
-#地址是[插件地址](https://www.npmjs.com/package/pluginunit)
-#说明 ，直接引用js文件的话script/index.js   
-#框架引用 npm install pluginunit --save  
+# 地址是[git地址](https://github.com/443484208/pluginunit)  
+# 地址是[插件地址](https://www.npmjs.com/package/pluginunit)  
+# 说明 ，直接引用js文件的话script/index.js     
+# 框架引用 npm install pluginunit --save    
 * 1  hyCurrent(data)data时间,几个月前或者几年前,当前  
 * 2  getTime(data) 年月日时分秒  
 * 3   getTimes(num1, num2) 年月日  
