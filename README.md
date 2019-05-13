@@ -85,5 +85,9 @@
 *   validatemobile(mobile)  判断是否为手机号码 可以时间戳 时间2018-01-02   
    
 *   timeFormats(data, type，force)  返回控制代表时间错//data==时间 遵守new Date type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年yearType=1  
+   
+*   slideTop(id, time = 0)滑动到指定id元素 id:元素id time滚动时间 默认没有停顿
+
+*   scrollTop(number = 0, time)滑动距离 基于body滚动 number:滚动距离 time滚动时间
 		
 	

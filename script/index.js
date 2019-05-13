@@ -613,104 +613,128 @@ class gg {
 			} else {
 				strBirthday = new Date(strBirthday);
 			}
-	} else {
-		// 不能为空
-		return 
-	}
-	var returnAge;
-	var birthYear = strBirthday.getFullYear();
-	var birthMonth = strBirthday.getMonth() + 1;
-	var birthDay = strBirthday.getDate();
-	var d = new Date(); //返回当前时间对象;
-	var nowYear = d.getFullYear();
-	var nowMonth = d.getMonth() + 1;
-	var nowDay = d.getDate();
+		} else {
+			// 不能为空
+			return
+		}
+		var returnAge;
+		var birthYear = strBirthday.getFullYear();
+		var birthMonth = strBirthday.getMonth() + 1;
+		var birthDay = strBirthday.getDate();
+		var d = new Date(); //返回当前时间对象;
+		var nowYear = d.getFullYear();
+		var nowMonth = d.getMonth() + 1;
+		var nowDay = d.getDate();
 
-	if (nowYear == birthYear) {
-		returnAge = 0; //同年 则为0岁
-	} else {
-		var ageDiff = nowYear - birthYear; //年之差
-		if (ageDiff > 0) {
-			if (nowMonth == birthMonth) {
-				var dayDiff = nowDay - birthDay; //日之差
-				if (dayDiff < 0) {
-					returnAge = ageDiff - 1;
+		if (nowYear == birthYear) {
+			returnAge = 0; //同年 则为0岁
+		} else {
+			var ageDiff = nowYear - birthYear; //年之差
+			if (ageDiff > 0) {
+				if (nowMonth == birthMonth) {
+					var dayDiff = nowDay - birthDay; //日之差
+					if (dayDiff < 0) {
+						returnAge = ageDiff - 1;
+					} else {
+						returnAge = ageDiff;
+					}
 				} else {
-					returnAge = ageDiff;
+					var monthDiff = nowMonth - birthMonth; //月之差
+					if (monthDiff < 0) {
+						returnAge = ageDiff - 1;
+					} else {
+						returnAge = ageDiff;
+					}
 				}
 			} else {
-				var monthDiff = nowMonth - birthMonth; //月之差
-				if (monthDiff < 0) {
-					returnAge = ageDiff - 1;
-				} else {
-					returnAge = ageDiff;
-				}
+				returnAge = -1; //返回-1 表示出生日期输入错误 晚于今天
 			}
-		} else {
-			returnAge = -1; //返回-1 表示出生日期输入错误 晚于今天
 		}
+		if (returnAge < 1) {
+			returnAge = 1
+		}
+		return returnAge; //返回周岁年龄
 	}
-	if (returnAge < 1) {
-		returnAge = 1
-	}
-	return returnAge; //返回周岁年龄
-}
-//判断是否为手机号码
-validatemobile(mobile) {
-	if (mobile.length == 0) {
+	//判断是否为手机号码
+	validatemobile(mobile) {
+		if (mobile.length == 0) {
+			return {
+				type: false,
+				title: '请输入手机号！',
+			};
+		}
+		if (mobile.length != 11) {
+			return {
+				type: false,
+				title: '手机号长度有误！',
+			};
+		}
+		var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+		if (!myreg.test(mobile)) {
+			return {
+				type: false,
+				title: '手机号长度有误！',
+			};
+		}
 		return {
-			type: false,
-			title: '请输入手机号！',
+			type: true,
+			title: '手机号正确！',
 		};
 	}
-	if (mobile.length != 11) {
-		return {
-			type: false,
-			title: '手机号长度有误！',
-		};
+	//type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年yearType=1timeFormats(1554973494,0,1)
+	timeFormats(a, type = 0, force = 0) {
+		if (a == null || a == 0) {
+			return ''
+		} else {
+			var time = a < 10000000000 ? new Date(a * 1000) : new Date(a);
+			var year = time.getFullYear();
+			var newYear = new Date().getFullYear();
+			var month = (time.getMonth() + 1) < 10 ? '0' + (time.getMonth() + 1) : time.getMonth();
+			var day = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
+			var hours = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
+			var minute = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
+			var week = time.getDay();
+			var weekNum = ["日", "一", "二", "三", "四", "五", "六"];
+			var yearForce;
+			if (force == 1) {
+				yearForce = year + '年'
+			} else {
+				yearForce = year == newYear ? '' : year + '年'
+			}
+			if (type == 0) {
+				return (yearForce + month + '月' + day + ' 周' + weekNum[week] + hours + ":" + minute);
+
+			} else {
+				return (yearForce + month + '月' + day + ' 周' + weekNum[week]);
+
+			}
+		}
+
 	}
-	var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-	if (!myreg.test(mobile)) {
-		return {
-			type: false,
-			title: '手机号长度有误！',
-		};
+	//滑动到指定id元素 id:元素id time滚动时间
+	slideTop(id, time = 0) {
+		var topHeight = document.getElementById(id).offsetTop;
+		this.scrollTop(topHeight, time)
 	}
-	return {
-		type: true,
-		title: '手机号正确！',
+// 滑动距离 基于body滚动 number:滚动距离 time滚动时间
+	scrollTop(number = 0, time) {
+		if (!time) {
+			document.body.scrollTop = document.documentElement.scrollTop = number;
+			return number;
+		}
+		const spacingTime = 20; // 设置循环的间隔时间  值越小消耗性能越高
+		let spacingInex = time / spacingTime; // 计算循环的次数
+		let nowTop = document.body.scrollTop + document.documentElement.scrollTop; // 获取当前滚动条位置
+		let everTop = (number - nowTop) / spacingInex; // 计算每次滑动的距离
+		let scrollTimer = setInterval(() => {
+			if (spacingInex > 0) {
+				spacingInex--;
+				this.scrollTop(nowTop += everTop);
+			} else {
+				clearInterval(scrollTimer); // 清除计时器
+			}
+		}, spacingTime);
 	};
-}
-//type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年yearType=1timeFormats(1554973494,0,1)
-timeFormats(a, type = 0, force = 0) {
-	if (a == null || a == 0) {
-		return ''
-	} else {
-		var time = a < 10000000000 ? new Date(a * 1000) : new Date(a);
-		var year = time.getFullYear();
-		var newYear = new Date().getFullYear();
-		var month = (time.getMonth() + 1) < 10 ? '0' + (time.getMonth() + 1) : time.getMonth();
-		var day = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
-		var hours = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
-		var minute = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
-		var week = time.getDay();
-		var weekNum = ["日", "一", "二", "三", "四", "五", "六"];
-		var yearForce;
-		if (force == 1) {
-			yearForce = year + '年'
-		} else {
-			yearForce = year == newYear ? '' : year + '年'
-		}
-		if (type == 0) {
-			return (yearForce + month + '月' + day + ' 周' + weekNum[week] + hours + ":" + minute);
-
-		} else {
-			return (yearForce + month + '月' + day + ' 周' + weekNum[week]);
-
-		}
-	}
-
-}
 
 }
 
