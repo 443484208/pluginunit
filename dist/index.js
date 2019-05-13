@@ -1,10 +1,11 @@
 class gg {
-	//	月前
-	hyCurrent(day) {
+	//	月前 day=时间格式遵守new Date格式即可 可以时间戳。识别当前月或者几个月前 超过十二个月自动识别几年前
+	fewCurrent(day) {
+		var time = day < 10000000000 ? new Date(day * 1000) : new Date(day);
 		var newMonth = new Date().getMonth() + 1;
 		var newYear = new Date().getFullYear();
-		var Year = new Date(day).getFullYear();
-		var Month = new Date(day).getMonth() + 1;
+		var Year = time.getFullYear();
+		var Month = time.getMonth() + 1;
 		var data;
 		if (newYear > Year) {
 			data = (((newYear - Year) * 12) - Month + newMonth);
@@ -15,7 +16,6 @@ class gg {
 			if (data == 0) {
 				data = '当前'
 			} else {
-
 				data = data + '月前'
 			}
 			return data
@@ -25,7 +25,7 @@ class gg {
 	}
 	//	年月日时分秒
 	getTime(day) {
-		var d = new Date(day);
+		var d = day < 10000000000 ? new Date(day * 1000) : new Date(day);
 		var year = d.getFullYear();
 		var month = d.getMonth() + 1;
 		var date = d.getDate();
@@ -60,7 +60,7 @@ class gg {
 	}
 	//	年月日
 	getTimes(day) {
-		var d = new Date(day);
+		var d = day < 10000000000 ? new Date(day * 1000) : new Date(day);
 		var year = d.getFullYear();
 		var month = d.getMonth() + 1;
 		var date = d.getDate();
@@ -77,7 +77,6 @@ class gg {
 		return curDateTime
 	}
 	// 加法运算
-
 	numAdd(num1, num2) {
 		if (!isNaN(Number(num1)) && !isNaN(Number(num2))) {
 			var baseNum, baseNum1, baseNum2;
@@ -441,10 +440,6 @@ class gg {
 		}
 
 	}
-	//  打乱数组
-	disrupt(arr) {
-		arr.sort(() => Math.random() > 0.5)
-	}
 	//	记录数组重复值和位置
 	unique(arr) {
 		let obj = {};
@@ -461,17 +456,17 @@ class gg {
 	}
 	//	拖动
 	dt(box) {
-		var boxx = document.getElementById(box);
-		boxx.onmousedown = function(ev) {
+		var drag = document.getElementById(box);
+		drag.onmousedown = function(ev) {
 			if (ev.srcElement.localName == 'input' || ev.srcElement.localName == 'textarea' || ev.srcElement.localName ==
 				'button' || ev.srcElement.localName == 'i') {
 
 			} else {
-				boxx.style.position = 'absolute;';
+				drag.style.position = 'absolute';
 				var oEvent = ev;
 				//求出鼠标和box的位置差值
-				var x = oEvent.clientX - boxx.offsetLeft;
-				var y = oEvent.clientY - boxx.offsetTop;
+				var x = oEvent.clientX - drag.offsetLeft;
+				var y = oEvent.clientY - drag.offsetTop;
 				//鼠标移动的函数
 				//把事件加在document上，解决因为鼠标移动太快时，
 				//鼠标超过box后就没有了拖拽的效果的问题
@@ -484,17 +479,17 @@ class gg {
 					if (l < 0) {
 						l = 0;
 
-					} else if (l > document.documentElement.clientWidth - boxx.offsetWidth) {
-						l = document.documentElement.clientWidth - boxx.offsetWidth;
+					} else if (l > document.documentElement.clientWidth - drag.offsetWidth) {
+						l = document.documentElement.clientWidth - drag.offsetWidth;
 					}
 					if (t < 0) {
 						t = 0;
-					} else if (t > document.documentElement.clientHeight - boxx.offsetHeight) {
-						t = document.documentElement.clientHeight - boxx.offsetHeight;
+					} else if (t > document.documentElement.clientHeight - drag.offsetHeight) {
+						t = document.documentElement.clientHeight - drag.offsetHeight;
 					}
 					console.log(l)
-					boxx.style.left = l + "px";
-					boxx.style.top = t + "px";
+					drag.style.left = l + "px";
+					drag.style.top = t + "px";
 				}
 				//鼠标抬起的函数
 				document.onmouseup = function() {
@@ -543,9 +538,10 @@ class gg {
 		var primarys = document.querySelector('.' + primary);
 		if (primarys.classList.contains(cls)) {
 			console.log(primary + '包含' + cls + '这个class');
+			return true
 		} else {
 			console.log(primary + '不包含' + cls + '这个class');
-
+			return false
 		}
 	}
 
@@ -563,6 +559,7 @@ class gg {
 	removeClass(primary, cls) {
 		if (primary, cls) {
 			document.querySelector('.' + primary).classList.remove(cls)
+			return true
 		} else {
 
 		}
