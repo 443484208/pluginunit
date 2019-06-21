@@ -735,6 +735,31 @@ class gg {
 			}
 		}, spacingTime);
 	};
+	// 指定获取url?参数
+	getUrlByName(name, url) {
+		if (!url) {
+			url = window.location.href;
+		}
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}		
+	//url？参数转对象
+	parseUrl(url) {
+		if (!url) {
+			url = window.location.search;
+			url=url.replace("?",'')
+		}
+		var reg = /([^=&\s]+)[=\s]*([^&\s]*)/g;
+		var obj = {};
+		while (reg.exec(url)) {
+			obj[RegExp.$1] = RegExp.$2;
+		}
+		return obj;
+	};
 
 }
 

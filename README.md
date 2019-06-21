@@ -89,5 +89,7 @@
 *   slideTop(id, time = 0)滑动到指定id元素 id:元素id time滚动时间 默认没有停顿
 
 *   scrollTop(number = 0, time)滑动距离 基于body滚动 number:滚动距离 time滚动时间
-		
+   
+*   getUrlByName(name, url)获取url?参数值  name:需要获取的对应值名字 url:选填，不填就获取当前地址		
 	
+*   parseUrl(url)url？参数转化为对象  url:选填，不填就获取当前地址
