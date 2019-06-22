@@ -1,5 +1,6 @@
 ### [git地址](https://github.com/443484208/pluginunit) 
 ### [插件地址](https://www.npmjs.com/package/pluginunit) 
+[![pluginunit](https://img.shields.io/npm/v/pluginunit.svg)](https://npmjs.org/package/pluginunit)
 [![NPM all downloads](https://img.shields.io/npm/dt/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
 [![NPM downloads](https://img.shields.io/npm/dm/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
 [![NPM downloads](https://img.shields.io/npm/dw/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
