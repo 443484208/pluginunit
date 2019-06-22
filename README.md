@@ -1,6 +1,7 @@
 ### [git地址](https://github.com/443484208/pluginunit) 
 ### [插件地址](https://www.npmjs.com/package/pluginunit) 
-[![NPM downloads](https://img.shields.io/npm/dt/pluginunit.svg?style=flat-square)](https://npmjs.org/package/weex-ui)
+[![NPM all downloads](https://img.shields.io/npm/dt/pluginunit.svg?style=flat-square)](https://npmjs.org/package/weex-ui)
+[![NPM downloads](https://img.shields.io/npm/d/pluginunit.svg?style=flat-square)](https://npmjs.org/package/weex-ui)
 >  说明 ，直接引用js文件的话script/index.js     
 >  框架引用 npm install pluginunit --save    
 >  分类api  [算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_data.md) 
