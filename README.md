@@ -1,8 +1,9 @@
 ### [git地址](https://github.com/443484208/pluginunit) 
-### [插件地址](https://www.npmjs.com/package/pluginunit)  
+### [插件地址](https://www.npmjs.com/package/pluginunit) 
+[![NPM downloads](https://img.shields.io/npm/dt/pluginunit.svg?style=flat-square)](https://npmjs.org/package/weex-ui)
 >  说明 ，直接引用js文件的话script/index.js     
 >  框架引用 npm install pluginunit --save    
->  分类[算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_data.md) 
+>  分类api  [算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_data.md) 
 *   fewCurrent(data) 时间:data=格式遵守new Date格式即可 可以时间戳。识别当前月或者几个月前 超过十二个月自动识别几年前
   
 *   getTime(data) 时间:data=格式遵守new Date格式即可 可以时间戳。年月日时分秒  
