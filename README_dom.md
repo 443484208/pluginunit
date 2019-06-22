@@ -1,7 +1,11 @@
-### [git地址](https://github.com/443484208/pluginunit) 
-### [插件地址](https://www.npmjs.com/package/pluginunit)  
+### [GITHUB地址](https://github.com/443484208/pluginunit)| [插件地址](https://www.npmjs.com/package/pluginunit) 
+[![pluginunit](https://img.shields.io/npm/v/pluginunit.svg)](https://npmjs.org/package/pluginunit)
+[![NPM all downloads](https://img.shields.io/npm/dt/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
+[![NPM downloads](https://img.shields.io/npm/dm/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
+[![NPM downloads](https://img.shields.io/npm/dw/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
 >  说明 ，直接引用js文件的话script/index.js     
->  框架引用 npm install pluginunit --save     
+>  框架引用 npm install pluginunit --save    
+>  分类api  [汇总](README.md) |[算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_data.md)     
 *   hasClass(primary, cls)  primary原本的class ,cls是否有这个 有class==true 没有返回false   
    
 *   addClass(primary, cls)  primary:原本的class, class添加的class  true 成功添加
