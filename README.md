@@ -2,6 +2,7 @@
 ### [插件地址](https://www.npmjs.com/package/pluginunit)  
 >  说明 ，直接引用js文件的话script/index.js     
 >  框架引用 npm install pluginunit --save    
+>  分类[算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_data.md) 
 *   fewCurrent(data) 时间:data=格式遵守new Date格式即可 可以时间戳。识别当前月或者几个月前 超过十二个月自动识别几年前
   
 *   getTime(data) 时间:data=格式遵守new Date格式即可 可以时间戳。年月日时分秒  
@@ -13,11 +14,11 @@
 *   numMulti(num1, num2) 乘法运算 千位符都可以计算  
    
 *   numDivision(num1, num2) 除法运算 千位符都可以计算  num1除数，num2被除数  
-*   
+  
 *   getJson(url, header = 'application/json; charset=UTF-8') get请求 Promise写法     
-*   
+   
 *   postJson(url, data, header = "application/json; charset=UTF-8")  post请求 Promise写法  url地址 data值 header改变form也行   
-*   
+  
 *   DX(event) 大写金额   
    
 *   numDivision(cname, cvalue, exdays) 设置cookie cname名字 cvalue值  
@@ -82,9 +83,9 @@
   
 *   getStrBirthday(date) 根据生日获取年龄 可以时间戳 时间2018-01-02 ()  
    
-*   validatemobile(mobile)  判断是否为手机号码 可以时间戳 时间2018-01-02   
+*   validatemobile(mobile)  判断是否为手机号码 
    
-*   timeFormats(data, type，force)  返回控制代表时间错//data==时间 遵守new Date type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年yearType=1  
+*   timeFormats(data, type，force)  返回控制代表时间戳 //type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年force=1timeFormats(1554973494,0,1)  
    
 *   slideTop(id, time = 0)滑动到指定id元素 id:元素id time滚动时间 默认没有停顿
 

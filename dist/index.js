@@ -681,7 +681,7 @@ class gg {
 			title: '手机号正确！',
 		};
 	}
-	//type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年yearType=1timeFormats(1554973494,0,1)
+	//type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年force=1timeFormats(1554973494,0,1)
 	timeFormats(a, type = 0, force = 0) {
 		if (a == null || a == 0) {
 			return ''
