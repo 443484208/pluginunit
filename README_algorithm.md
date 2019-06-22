@@ -5,7 +5,7 @@
 [![NPM downloads](https://img.shields.io/npm/dw/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
 >  说明 ，直接引用js文件的话script/index.js     
 >  框架引用 npm install pluginunit --save    
->  分类api  [汇总](README.md) |[算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_data.md) 
+>  分类api  [汇总](README.md) |[算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_time.md) 
 *   numAdd(num1, num2) 加法运算 千位符都可以计算  
   
 *   numMulti(num1, num2) 乘法运算 千位符都可以计算  
