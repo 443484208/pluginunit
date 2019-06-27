@@ -24,7 +24,7 @@
   
 *   DX(event) 大写金额   
    
-*   numDivision(cname, cvalue, exdays) 设置cookie cname名字 cvalue值  
+*   setCookie(cname, cvalue, exdays) 设置cookie cname名字 cvalue值  
    
 *   getCookie(cname) 获取cookie   
    

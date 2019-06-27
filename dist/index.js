@@ -374,7 +374,6 @@ class gg {
 	//获取sessionStorage
 	getSessionStorage(name) {
 		return JSON.parse(sessionStorage.getItem(name))
-
 	}
 	//清除sessionStorage
 	clearSessionStorage(data) {

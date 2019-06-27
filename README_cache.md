@@ -10,7 +10,7 @@
    
 *   postJson(url, data, header = "application/json; charset=UTF-8")  post请求 Promise写法  url地址 data值 header改变form也行   
    
-*   numDivision(cname, cvalue, exdays) 设置cookie cname名字 cvalue值  
+*   setCookie(cname, cvalue, exdays) 设置cookie cname名字 cvalue值  
    
 *   getCookie(cname) 获取cookie   
    
