@@ -311,7 +311,6 @@ class gg {
 		var expires = "expires=" + d.toUTCString();
 		//	console.info(cname + "=" + cvalue + "; " + expires);
 		document.cookie = cname + "=" + cvalue + "; " + expires;
-
 	}
 	//获取cookie
 	getCookie(cname) {
@@ -327,6 +326,7 @@ class gg {
 	//清除cookie
 	clearCookie(data) {
 		this.setCookie(data, "", -1);
+		return true
 	}
 	//清除全部cookie
 	clearCookieAll() {
@@ -338,7 +338,8 @@ class gg {
 	}
 	//设置LocalStorage
 	setLocalStorage(name, val) {
-		localStorage.setItem(name, JSON.stringify(val))
+		localStorage.setItem(name, JSON.stringify(val));
+		return true
 	}
 	//获取LocalStorage
 	getLocalStorage(name) {
@@ -347,14 +348,17 @@ class gg {
 	//清除全部LocalStorage
 	clearLocalStorage(data) {
 		localStorage.removeItem(data);
+		return true
 	}
 	//清除LocalStorage
 	clearLocalStorageAll() {
 		localStorage.clear();
+		return true
 	}
 	//设置sessionStorage
 	setSessionStorage(name, val) {
-		sessionStorage.setItem(name, JSON.stringify(val))
+		sessionStorage.setItem(name, JSON.stringify(val));
+		return true
 	}
 	//获取sessionStorage
 	getSessionStorage(name) {
@@ -363,10 +367,12 @@ class gg {
 	//清除sessionStorage
 	clearSessionStorage(data) {
 		sessionStorage.removeItem(data);
+		return true
 	}
 	//清除全部sessionStorage
 	clearSessionStorageAll() {
 		sessionStorage.clear();
+		return true
 	}
 	//数组对象转化json字符串
 	postObj(a) {
