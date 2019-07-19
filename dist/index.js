@@ -56,7 +56,6 @@ class gg {
 		else
 			curDateTime = curDateTime + ":0" + seconds;
 		return curDateTime;
-
 	}
 	//	年月日
 	getTimes(day) {
@@ -98,7 +97,6 @@ class gg {
 			num2 = num2 + "";
 			num2 = num2.replace(/,/g, "");
 			if (!isNaN(Number(num1)) && !isNaN(Number(num2))) {
-
 				var baseNum, baseNum1, baseNum2;
 				try {
 					baseNum1 = num1.toString().split(".")[1].length;
@@ -113,14 +111,11 @@ class gg {
 				baseNum = Math.pow(10, Math.max(baseNum1, baseNum2));
 				return this.housandDigits((num1 * baseNum + num2 * baseNum) / baseNum);
 			} else {
-
 				return NaN
 			}
 		}
-
 	}
 	//減法运算
-
 	numSub(num1, num2) {
 		if (!isNaN(Number(num1)) && !isNaN(Number(num2))) {
 			var baseNum, baseNum1, baseNum2;
@@ -158,10 +153,8 @@ class gg {
 				}
 				baseNum = Math.pow(10, Math.max(baseNum1, baseNum2));
 				precision = (baseNum1 >= baseNum2) ? baseNum1 : baseNum2;
-
 				return this.housandDigits((((num1 * baseNum - num2 * baseNum) / baseNum).toFixed(precision)));
 			} else {
-
 				return NaN
 			}
 		}
@@ -193,11 +186,9 @@ class gg {
 				return this.housandDigits((Number(num1.toString().replace(".", "")) * Number(num2.toString().replace(".", "")) /
 					Math.pow(10, baseNum)));
 			} else {
-
 				return NaN
 			}
 		}
-
 	}
 	// 除法运算
 	numDivision(num1, num2) {
@@ -215,7 +206,6 @@ class gg {
 			} catch (e) {
 				baseNum2 = 0;
 			}
-
 			baseNum3 = Number(num1.toString().replace(".", ""));
 			baseNum4 = Number(num2.toString().replace(".", ""));
 			return (baseNum3 / baseNum4) * Math.pow(10, baseNum2 - baseNum1);
@@ -238,17 +228,13 @@ class gg {
 				} catch (e) {
 					baseNum2 = 0;
 				}
-
 				baseNum3 = Number(num1.toString().replace(".", ""));
 				baseNum4 = Number(num2.toString().replace(".", ""));
-
 				return this.housandDigits(((baseNum3 / baseNum4) * Math.pow(10, baseNum2 - baseNum1)).toFixed(2));
 			} else {
-
 				return NaN
 			}
 		}
-
 	}
 	//get请求
 	getJson(url, header = 'application/json; charset=UTF-8') {
@@ -357,7 +343,6 @@ class gg {
 	//获取LocalStorage
 	getLocalStorage(name) {
 		return JSON.parse(localStorage.getItem(name))
-
 	}
 	//清除全部LocalStorage
 	clearLocalStorage(data) {
@@ -422,7 +407,6 @@ class gg {
 		var pos1 = this.strturn(file.replace(pos, ""));
 		var pos2 = this.GetFileName(pos1);
 		return pos2;
-
 	}
 	//	千位符
 	housandDigits(event) {
@@ -437,7 +421,6 @@ class gg {
 			var reg = new RegExp(originals)
 			return data.replace(reg, original);
 		}
-
 	}
 	//	记录数组重复值和位置
 	unique(arr) {
@@ -449,7 +432,6 @@ class gg {
 			} else {
 				obj[key] += 1;
 			}
-
 		};
 		return obj;
 	}
@@ -459,7 +441,6 @@ class gg {
 		drag.onmousedown = function(ev) {
 			if (ev.srcElement.localName == 'input' || ev.srcElement.localName == 'textarea' || ev.srcElement.localName ==
 				'button' || ev.srcElement.localName == 'i') {
-
 			} else {
 				drag.style.position = 'absolute';
 				var oEvent = ev;
@@ -471,13 +452,11 @@ class gg {
 				//鼠标超过box后就没有了拖拽的效果的问题
 				document.onmousemove = function(ev) {
 					var oEvent = ev;
-
 					//保证拖拽框一直保持在浏览器窗口内部，不能被拖出的浏览器窗口的范围
 					var l = oEvent.clientX - x;
 					var t = oEvent.clientY - y;
 					if (l < 0) {
 						l = 0;
-
 					} else if (l > document.documentElement.clientWidth - drag.offsetWidth) {
 						l = document.documentElement.clientWidth - drag.offsetWidth;
 					}
@@ -499,7 +478,6 @@ class gg {
 				//return false阻止默认事件，解决火狐的bug
 				return false;
 			}
-
 		}
 	}
 	//	数组去重排序 
@@ -519,13 +497,11 @@ class gg {
 		return data.sort(function(a, b) {
 			return a[value] - b[value]
 		})
-
 	}
 	//	深拷贝
 	deepCopy(Obj) {
 		if (!Obj || typeof Obj !== 'object') {
 			return ('您传入的不是对象!!');
-
 		}
 		// 转->解析->返回一步到位
 		return window.JSON ?
@@ -543,24 +519,20 @@ class gg {
 			return false
 		}
 	}
-
 	//添加class 
 	addClass(primary, cls) {
 		if (document.querySelector('.' + primary)) {
-
 			document.querySelector('.' + primary).classList.add(cls)
 		} else {
 			console.log(primary + '没有这个class！')
 		}
 	}
-
 	//删除class
 	removeClass(primary, cls) {
 		if (primary, cls) {
 			document.querySelector('.' + primary).classList.remove(cls)
 			return true
 		} else {
-
 		}
 	}
 	// 数组变成树形 id ,和父亲pid	filterTree(arryData);
@@ -624,7 +596,6 @@ class gg {
 		var nowYear = d.getFullYear();
 		var nowMonth = d.getMonth() + 1;
 		var nowDay = d.getDate();
-
 		if (nowYear == birthYear) {
 			returnAge = 0; //同年 则为0岁
 		} else {
@@ -702,10 +673,8 @@ class gg {
 			}
 			if (type == 0) {
 				return (yearForce + month + '月' + day + ' 周' + weekNum[week] + hours + ":" + minute);
-
 			} else {
 				return (yearForce + month + '月' + day + ' 周' + weekNum[week]);
-
 			}
 		}
 
@@ -733,7 +702,7 @@ class gg {
 				clearInterval(scrollTimer); // 清除计时器
 			}
 		}, spacingTime);
-	};
+	}
 	// 指定获取url?参数
 	getUrlByName(name, url) {
 		if (!url) {
@@ -758,8 +727,7 @@ class gg {
 			obj[RegExp.$1] = RegExp.$2;
 		}
 		return obj;
-	};
-
+	}
 }
 var ajax = new gg();
 export default ajax;
