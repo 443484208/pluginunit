@@ -742,6 +742,6 @@ class gg {
 			obj[RegExp.$1] = RegExp.$2;
 		}
 		return obj;
-	};
+	}
 }
 var hyPluginunit = new gg();
