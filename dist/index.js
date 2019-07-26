@@ -335,6 +335,7 @@ class gg {
 			for (var i = keys.length; i--;)
 				document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
 		}
+		return true;
 	}
 	//设置LocalStorage
 	setLocalStorage(name, val) {
@@ -518,19 +519,21 @@ class gg {
 	hasClass(primary, cls) {
 		var primarys = document.querySelector('.' + primary);
 		if (primarys.classList.contains(cls)) {
-			console.log(primary + '包含' + cls + '这个class');
+			// console.log(primary + '包含' + cls + '这个class');
 			return true
 		} else {
-			console.log(primary + '不包含' + cls + '这个class');
+			// console.log(primary + '不包含' + cls + '这个class');
 			return false
 		}
 	}
 	//添加class 
 	addClass(primary, cls) {
 		if (document.querySelector('.' + primary)) {
-			document.querySelector('.' + primary).classList.add(cls)
+			document.querySelector('.' + primary).classList.add(cls);
+			return true;
 		} else {
-			console.log(primary + '没有这个class！')
+			// console.log(primary + '没有这个class！')
+			return false;
 		}
 	}
 	//删除class
@@ -539,6 +542,7 @@ class gg {
 			document.querySelector('.' + primary).classList.remove(cls)
 			return true
 		} else {
+			return false;
 		}
 	}
 	// 数组变成树形 id ,和父亲pid	filterTree(arryData);

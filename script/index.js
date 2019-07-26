@@ -477,7 +477,6 @@ class gg {
 					} else if (t > document.documentElement.clientHeight - drag.offsetHeight) {
 						t = document.documentElement.clientHeight - drag.offsetHeight;
 					}
-					console.log(l)
 					drag.style.left = l + "px";
 					drag.style.top = t + "px";
 				}
@@ -524,10 +523,10 @@ class gg {
 	hasClass(primary, cls) {
 		var primarys = document.querySelector('.' + primary);
 		if (primarys.classList.contains(cls)) {
-			console.log(primary + '包含' + cls + '这个class');
+			// console.log(primary + '包含' + cls + '这个class');
 			return true
 		} else {
-			console.log(primary + '不包含' + cls + '这个class');
+			// console.log(primary + '不包含' + cls + '这个class');
 			return false
 		}
 	}
@@ -535,17 +534,20 @@ class gg {
 	addClass(primary, cls) {
 		if (document.querySelector('.' + primary)) {
 
-			document.querySelector('.' + primary).classList.add(cls)
+			document.querySelector('.' + primary).classList.add(cls);
+			return true;
 		} else {
-			console.log(primary + '没有这个class！')
+			return false;
+			// console.log(primary + '没有这个class！')
 		}
 	}
 	//删除class
 	removeClass(primary, cls) {
 		if (primary, cls) {
 			document.querySelector('.' + primary).classList.remove(cls)
-			return true
+			return true;
 		} else {
+			return false;
 		}
 	}
 	// 数组变成树形 id ,和父亲pid	filterTree(arryData);
