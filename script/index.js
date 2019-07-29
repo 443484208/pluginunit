@@ -111,13 +111,11 @@ class gg {
 				baseNum = Math.pow(10, Math.max(baseNum1, baseNum2));
 				return this.housandDigits((num1 * baseNum + num2 * baseNum) / baseNum);
 			} else {
-
 				return NaN
 			}
 		}
 	}
 	//減法运算
-
 	numSub(num1, num2) {
 		if (!isNaN(Number(num1)) && !isNaN(Number(num2))) {
 			var baseNum, baseNum1, baseNum2;
@@ -155,7 +153,6 @@ class gg {
 				}
 				baseNum = Math.pow(10, Math.max(baseNum1, baseNum2));
 				precision = (baseNum1 >= baseNum2) ? baseNum1 : baseNum2;
-
 				return this.housandDigits((((num1 * baseNum - num2 * baseNum) / baseNum).toFixed(precision)));
 			} else {
 				return NaN
@@ -192,7 +189,6 @@ class gg {
 				return NaN
 			}
 		}
-
 	}
 	// 除法运算
 	numDivision(num1, num2) {
@@ -234,13 +230,11 @@ class gg {
 				}
 				baseNum3 = Number(num1.toString().replace(".", ""));
 				baseNum4 = Number(num2.toString().replace(".", ""));
-
 				return this.housandDigits(((baseNum3 / baseNum4) * Math.pow(10, baseNum2 - baseNum1)).toFixed(2));
 			} else {
 				return NaN
 			}
 		}
-
 	}
 	//get请求
 	getJson(url, header = 'application/json; charset=UTF-8') {
@@ -317,6 +311,7 @@ class gg {
 		var expires = "expires=" + d.toUTCString();
 		//	console.info(cname + "=" + cvalue + "; " + expires);
 		document.cookie = cname + "=" + cvalue + "; " + expires;
+		return true;
 	}
 	//获取cookie
 	getCookie(cname) {
@@ -332,14 +327,16 @@ class gg {
 	//清除cookie
 	clearCookie(data) {
 		this.setCookie(data, "", -1);
+		return true;
 	}
 	//清除全部cookie
 	clearCookieAll() {
 		var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
 		if (keys) {
 			for (var i = keys.length; i--;)
-				document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+				document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString();
 		}
+		return true;
 	}
 	//设置LocalStorage
 	setLocalStorage(name, val) {
@@ -368,7 +365,6 @@ class gg {
 	//获取sessionStorage
 	getSessionStorage(name) {
 		return JSON.parse(sessionStorage.getItem(name))
-
 	}
 	//清除sessionStorage
 	clearSessionStorage(data) {

@@ -311,6 +311,7 @@ class gg {
 		var expires = "expires=" + d.toUTCString();
 		//	console.info(cname + "=" + cvalue + "; " + expires);
 		document.cookie = cname + "=" + cvalue + "; " + expires;
+		return true;
 	}
 	//获取cookie
 	getCookie(cname) {
@@ -472,7 +473,6 @@ class gg {
 					} else if (t > document.documentElement.clientHeight - drag.offsetHeight) {
 						t = document.documentElement.clientHeight - drag.offsetHeight;
 					}
-					console.log(l)
 					drag.style.left = l + "px";
 					drag.style.top = t + "px";
 				}
