@@ -529,7 +529,6 @@ class gg {
 	//添加class 
 	addClass(primary, cls) {
 		if (document.querySelector('.' + primary)) {
-
 			document.querySelector('.' + primary).classList.add(cls);
 			return true;
 		} else {
@@ -684,7 +683,6 @@ class gg {
 			}
 			if (type == 0) {
 				return (yearForce + month + '月' + day + ' 周' + weekNum[week] + hours + ":" + minute);
-
 			} else {
 				return (yearForce + month + '月' + day + ' 周' + weekNum[week]);
 			}

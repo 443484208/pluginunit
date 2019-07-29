@@ -687,7 +687,6 @@ class gg {
 				return (yearForce + month + '月' + day + ' 周' + weekNum[week]);
 			}
 		}
-
 	}
 	//滑动到指定id元素 id:元素id time滚动时间
 	slideTop(id, time = 0) {
