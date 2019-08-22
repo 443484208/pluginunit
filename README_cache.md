@@ -6,9 +6,7 @@
 >  说明 ，直接引用js文件的话script/index.js     
 >  框架引用 npm install pluginunit --save    
 >  分类api  [汇总](README.md) |[算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_time.md)  
-*   getJson(url, header = 'application/json; charset=UTF-8') get请求 Promise写法     
-   
-*   postJson(url, data, header = "application/json; charset=UTF-8")  post请求 Promise写法  url地址 data值 header改变form也行   
+*   请求 ajax({type: "get", url: url,data: data,dataType: "json",success: function (result) {} });  
    
 *   setCookie(cname, cvalue, exdays) 设置cookie cname名字 cvalue值  
    

@@ -18,10 +18,8 @@
    
 *   numDivision(num1, num2) 除法运算 千位符都可以计算  num1除数，num2被除数  
   
-*   getJson(url, header = 'application/json; charset=UTF-8') get请求 Promise写法     
+*   // 请求 ajax({type: "get", url: url,data: data,dataType: "json",success: function (result) {} });  
    
-*   postJson(url, data, header = "application/json; charset=UTF-8")  post请求 Promise写法  url地址 data值 header改变form也行   
-  
 *   DX(event) 大写金额   
    
 *   setCookie(cname, cvalue, exdays) 设置cookie cname名字 cvalue值  

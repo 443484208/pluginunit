@@ -236,58 +236,41 @@ class gg {
 			}
 		}
 	}
-	//get请求
-	getJson(url, header = 'application/json; charset=UTF-8') {
-		let p = new Promise(function(resolve, reject) {
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET', url, true);
-			xhr.onreadystatechange = function() {
-				if (this.readyState == 4) {
-					if (this.status == 200) {
-						resolve(xhr.response);
-					} else {
-						reject(new Error(xhr.stateText));
-					}
-				}
-			};
-			xhr.responseType = 'json';
-			xhr.setRequestHeader("Content-Type", header);
-			xhr.send();
-		})
-		return p;
-	}
-	//post请求
-	postJson(url, data, header = "application/json; charset=UTF-8") {
-		let p = new Promise(function(resolve, reject) {
-			var xhr = new XMLHttpRequest();
-			xhr.open("POST", url, true);
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4) {
-					if (this.status == 200) {
-						var data = xhr.response;
-						resolve(JSON.parse(data));
-					} else {
-						reject(new Error(xhr.stateText));
-					}
-				}
-			};
-			xhr.setRequestHeader("Content-Type", header);
-			if (!((header.indexOf('form')) == -1)) {
-				var formData = [];
-				for (var key in data) {
-					if (data[key]) {
-						formData = formData + key + '=' + data[key] + '&';
-					}
-				}
-				xhr.send(formData);
-			} else if (typeof(data) == 'object') {
-				xhr.send(JSON.stringify(data));
-			} else {
-				xhr.send(data);
-			}
-		})
-		return p;
-	}
+	// 请求
+	// ajax({
+	//     type: "get",
+	//     url: "http://localhost:8055/listcount.php",
+	//     data: {search: "l"},
+	//     dataType: "json",
+	//     success: function (result) {
+	//         alert(result["count"]);
+	//     }
+	// });
+    ajax (json) {
+        var req = new XMLHttpRequest();
+        var type = json["type"];
+        var url = json["url"];
+        if (json["data"]) {
+            var html = "?";
+            for (var i in json["data"]) {
+                html += i + "=" + json["data"][i] + "&";
+            }
+            html = html.substring(0, html.length - 1);
+            url += html;
+        }
+        var success = json["success"];
+        req.open(type, url, true);
+        req.send();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                var result = req.responseText;
+                if (json["dataType"] == "json") {
+                    result = JSON.parse(result);
+                }
+                success(result);
+            }
+        }
+    },
 	//	大写金额
 	DX(event) {
 		if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(event))
