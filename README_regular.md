@@ -6,29 +6,18 @@
 >  说明 ，直接引用js文件的话script/index.js     
 >  框架引用 npm install pluginunit --save    
 >  分类api  [汇总](README.md) |[算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_time.md)   | [正则操作](README_regular.md) 
-*   请求 ajax({type: "get", url: url,data: data,dataType: "json",success: function (result) {} });  
-   
-*   setCookie(cname, cvalue, exdays) 设置cookie cname名字 cvalue值  
-   
-*   getCookie(cname) 获取cookie   
-   
-*   clearCookie(cname) 清除cookie   
-   
-*   clearCookieAll() 清除全部cookie   
+*   cardToBirthday(data) 身份证转生日 格式19950-05-08
   
-*   setLocalStorage(name, val) 设置LocalStorage   name名字 val值   
+*   phoneNumberVerification(data) 手机号码验证 true false
    
-*   getLocalStorage(cname) 获取LocalStorage   
+*   passwordStrength(data, type = false) 密码强度正则，最少6位 type=false 默认值 包括至少1个大写字母，1个小写字母，1个数字
+*   type=true包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符,
+
+*   emailVerification(data) email验证 true false 
    
-*   clearLocalStorage(cname) 清除LocalStorage   
+*   urlVerification(data) 地址验证 true false     
    
-*   clearLocalStorageAll() 清除全部LocalStorage   
+*   chineseCharacters(data) 中文+字符验证 true false     
    
-*   setSessionStorage(name, val) 设置sessionStorage  name名字 val值  
+*   chineseVerification(data) 中文验证 true false  
    
-*   getSessionStorage(cname) 获取sessionStorage   
-   
-*   clearSessionStorage(cname) 清除sessionStorage   
-   
-*   clearSessionStorageAll() 清除全部sessionStorage   
-  
