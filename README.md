@@ -84,8 +84,6 @@
   
 *   getStrBirthday(date) 根据生日获取年龄 可以时间戳 时间2018-01-02 ()  
    
-*   validatemobile(mobile)  判断是否为手机号码 
-   
 *   timeFormats(data, type，force)  返回控制代表时间戳 //type=0 2019年02月23 周六 18: 55 type=1  2019年02月23 周六 同年不显示年强制需要年force=1timeFormats(1554973494,0,1)  
    
 *   slideTop(id, time = 0)滑动到指定id元素 id:元素id time滚动时间 默认没有停顿

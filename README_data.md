@@ -28,12 +28,6 @@
    
 *   deepCopy(Obj) 深拷贝   
    
-*   hasClass(primary, cls)  primary原本的class ,cls是否有这个 有class==true 没有返回false   
-   
-*   addClass(primary, cls)  primary:原本的class, class添加的class  true 成功添加
-   
-*   addClass(primary, cls)  primary:原本的class, class删除的class   
-   
 *   filterTree(arryData)  数组变成树形  arryData数组 父亲pid 自己id  
    
 *   findId(arry, 1)  递归找某节点  arry树形，1查找id  

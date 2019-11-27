@@ -270,7 +270,7 @@ class gg {
 	            success(result);
 	        }
 	    }
-	},
+	}
 	//	大写金额
 	DX(event) {
 		if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(event))
