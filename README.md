@@ -4,7 +4,7 @@
 [![NPM downloads](https://img.shields.io/npm/dm/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
 [![NPM downloads](https://img.shields.io/npm/dw/pluginunit.svg?style=flat-square)](https://npmjs.org/package/pluginunit)
 >  框架引用 npm install pluginunit --save    
->  import  pluginunit from 'pluginunit'
+>  import  pluginunit from 'pluginunit'    
 >  分类api  [汇总](README.md) |[算法相关](README_algorithm.md) | [缓存操作](README_cache.md)  | [数据操作](README_data.md)  | [节点操作](README_dom.md)   | [时间操作](README_time.md)   | [正则操作](README_regular.md) 
 *   fewCurrent(data) 时间:data=格式遵守new Date格式即可 可以时间戳。识别当前月或者几个月前 超过十二个月自动识别几年前
   
