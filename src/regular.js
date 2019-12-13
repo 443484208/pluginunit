@@ -17,6 +17,10 @@ var regular = {
 		const verification = /^1[3456789]\d{9}$/;
 		return verification.test(data);
 	},
+	// 手机号码中间星星
+	phoneStars(data) {
+		return data.replace(/^(\d{3})\d{5}(\d+)/, "$1****$2");
+	},
 	//密码强度正则，最少6位 type=false 默认值 包括至少1个大写字母，1个小写字母，1个数字
 	// type=true包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符,
 	passwordStrength(data, type = false) {

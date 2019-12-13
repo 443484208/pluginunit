@@ -92,4 +92,20 @@
    
 *   getUrlByName(name, url)获取url?参数值  name:需要获取的对应值名字 url:选填，不填就获取当前地址		
 	
-*   parseUrl(url)url？参数转化为对象  url:选填，不填就获取当前地址
+*   parseUrl(url)url？参数转化为对象  url:选填，不填就获取当前地址  cardToBirthday(data) 身份证转生日 格式19950-05-08
+
+*   staArrNum(data) 统计每个元素出现的次数 var a=[1,1,2]; {'1':2,'2':1}
+  
+*   phoneNumberVerification(data) 手机号码验证 true false
+   
+*   passwordStrength(data, type = false) 密码强度正则，最少6位 type=false 默认值 包括至少1个大写字母，1个小写字母，1个数字 type=true包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符,
+
+*   emailVerification(data) email验证 true false 
+   
+*   urlVerification(data) 地址验证 true false     
+   
+*   chineseCharacters(data) 中文+字符验证 true false     
+   
+*   chineseVerification(data) 中文验证 true false     
+
+*   phoneStart(data) 手机号码中间星星 134*****290   

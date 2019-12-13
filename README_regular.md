@@ -21,3 +21,5 @@
    
 *   chineseVerification(data) 中文验证 true false  
    
+*   phoneStart(data) 手机号码中间星星 134*****290
+   

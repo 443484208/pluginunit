@@ -35,3 +35,6 @@
 *   getUrlByName(name, url)获取url?参数值  name:需要获取的对应值名字 url:选填，不填就获取当前地址		
 	
 *   parseUrl(url)url？参数转化为对象  url:选填，不填就获取当前地址
+   
+*   staArrNum(data) 统计每个元素出现的次数 var a=[1,1,2]; {'1':2,'2':1}
+	

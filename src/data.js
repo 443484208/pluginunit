@@ -158,6 +158,19 @@ var data={
 			obj[RegExp.$1] = RegExp.$2;
 		}
 		return obj;
+	},
+	// 统计每个元素出现的次数
+	staArrNum(data){
+	  let obj = {};
+	  for (let i = 0; i < data.length; i++) {
+	    let m = data[i];
+	    if (obj.hasOwnProperty(m)) {
+	      obj[m] += 1;
+	    } else {
+	      obj[m] = 1;
+	    }
+	  }
+	  return obj;
 	}
 }
 
