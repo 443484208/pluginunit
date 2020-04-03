@@ -246,30 +246,30 @@ class gg {
 	//         alert(result["count"]);
 	//     }
 	// });
-	ajax (json) {
-	    var req = new XMLHttpRequest();
-	    var type = json["type"];
-	    var url = json["url"];
-	    if (json["data"]) {
-	        var html = "?";
-	        for (var i in json["data"]) {
-	            html += i + "=" + json["data"][i] + "&";
-	        }
-	        html = html.substring(0, html.length - 1);
-	        url += html;
-	    }
-	    var success = json["success"];
-	    req.open(type, url, true);
-	    req.send();
-	    req.onreadystatechange = function () {
-	        if (req.readyState == 4 && req.status == 200) {
-	            var result = req.responseText;
-	            if (json["dataType"] == "json") {
-	                result = JSON.parse(result);
-	            }
-	            success(result);
-	        }
-	    }
+	ajax(json) {
+		var req = new XMLHttpRequest();
+		var type = json["type"];
+		var url = json["url"];
+		if (json["data"]) {
+			var html = "?";
+			for (var i in json["data"]) {
+				html += i + "=" + json["data"][i] + "&";
+			}
+			html = html.substring(0, html.length - 1);
+			url += html;
+		}
+		var success = json["success"];
+		req.open(type, url, true);
+		req.send();
+		req.onreadystatechange = function() {
+			if (req.readyState == 4 && req.status == 200) {
+				var result = req.responseText;
+				if (json["dataType"] == "json") {
+					result = JSON.parse(result);
+				}
+				success(result);
+			}
+		}
 	}
 	//	大写金额
 	DX(event) {
@@ -431,8 +431,7 @@ class gg {
 		var drag = document.getElementById(box);
 		drag.onmousedown = function(ev) {
 			if (ev.srcElement.localName == 'input' || ev.srcElement.localName == 'textarea' || ev.srcElement.localName ==
-				'button' || ev.srcElement.localName == 'i') {
-			} else {
+				'button' || ev.srcElement.localName == 'i') {} else {
 				drag.style.position = 'absolute';
 				var oEvent = ev;
 				//求出鼠标和box的位置差值
@@ -528,7 +527,7 @@ class gg {
 			return false;
 		}
 	}
-	// 数组变成树形 id ,和父亲pid	filterTree(arryData);
+	// 数组变成树形 id ,和父亲pid	
 	filterTree(data) {
 		let result = []
 		if (!Array.isArray(data)) {
@@ -568,7 +567,7 @@ class gg {
 		}
 		return window.searId
 	}
-	//根据生日获取年龄 可以时间戳 时间2018-01-02 getStrBirthday(date)
+	//根据生日获取年龄 可以时间戳 时间2018-01-02 
 	getStrBirthday(strBirthday) {
 		var strBirthday;
 		if (strBirthday) {
@@ -676,7 +675,7 @@ class gg {
 		var topHeight = document.getElementById(id).offsetTop;
 		this.scrollTop(topHeight, time)
 	}
-// 滑动距离 基于body滚动 number:滚动距离 time滚动时间
+	// 滑动距离 基于body滚动 number:滚动距离 time滚动时间
 	scrollTop(number = 0, time) {
 		if (!time) {
 			document.body.scrollTop = document.documentElement.scrollTop = number;
@@ -706,19 +705,49 @@ class gg {
 		if (!results) return null;
 		if (!results[2]) return '';
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
-	}		
+	}
 	//url？参数转对象
 	parseUrl(url) {
-		if (!url) {
-			url = window.location.search;
-			url=url.replace("?",'')
+			if (!url) {
+				url = window.location.search;
+				url = url.replace("?", '')
+			}
+			var reg = /([^=&\s]+)[=\s]*([^&\s]*)/g;
+			var obj = {};
+			while (reg.exec(url)) {
+				obj[RegExp.$1] = RegExp.$2;
+			}
+			return obj;
+		},
+		/*获取时间差*/
+		function getDifferTime(getDate) {
+			const nowDate = new Date();
+			const targetDate = getDate < 10000000000 ? new Date(getDate * 1000) : new Date(getDate);
+			const differTime = new Date(nowDate.getTime() - targetDate.getTime());
+			const differDays = parseInt(differTime / (1000 * 60 * 60 * 24));
+			const differYear = parseInt(differDays / 365);
+			const differMonth = parseInt(differDays / 30);
+			const differHours = nowDate.getHours() - targetDate.getHours();
+			const differMinutes = Math.abs(nowDate.getMinutes() - targetDate.getMinutes());
+			const differAry = [{
+				dateDes: `${differYear}年前`,
+				dateVal: differYear
+			}, {
+				dateDes: `${differMonth}月前`,
+				dateVal: differMonth
+			}, {
+				dateDes: `${differDays}日前`,
+				dateVal: differDays
+			}, {
+				dateDes: `${differHours==1&&differMinutes==0?`${differHours}小时前`:`${differHours}小时前`}`,
+				dateVal: (differHours == 1 && differMinutes == 0) ? differHours : 0
+			}, {
+				dateDes: `${differHours>=1?`${differHours}小时${differMinutes}分前`:`${differMinutes}分钟前`}`,
+				dateVal: differHours >= 1 ? differHours : differMinutes
+			}];
+			return differAry.find((item) => {
+				return item.dateVal > 0;
+			}) || '刚刚';
 		}
-		var reg = /([^=&\s]+)[=\s]*([^&\s]*)/g;
-		var obj = {};
-		while (reg.exec(url)) {
-			obj[RegExp.$1] = RegExp.$2;
-		}
-		return obj;
-	}
 }
 var hyPluginunit = new gg();

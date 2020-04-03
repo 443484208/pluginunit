@@ -1,4 +1,34 @@
-var time={
+var time = {
+	// 时间差
+	getDifferTime(getDate) {
+		const nowDate = new Date();
+		const targetDate = getDate < 10000000000 ? new Date(getDate * 1000) : new Date(getDate);
+		const differTime = new Date(nowDate.getTime() - targetDate.getTime());
+		const differDays = parseInt(differTime / (1000 * 60 * 60 * 24));
+		const differYear = parseInt(differDays / 365);
+		const differMonth = parseInt(differDays / 30);
+		const differHours = nowDate.getHours() - targetDate.getHours();
+		const differMinutes = Math.abs(nowDate.getMinutes() - targetDate.getMinutes());
+		const differAry = [{
+			dateDes: `${differYear}年前`,
+			dateVal: differYear
+		}, {
+			dateDes: `${differMonth}月前`,
+			dateVal: differMonth
+		}, {
+			dateDes: `${differDays}日前`,
+			dateVal: differDays
+		}, {
+			dateDes: `${differHours==1&&differMinutes==0?`${differHours}小时前`:`${differHours}小时前`}`,
+			dateVal: (differHours == 1 && differMinutes == 0) ? differHours : 0
+		}, {
+			dateDes: `${differHours>=1?`${differHours}小时${differMinutes}分前`:`${differMinutes}分钟前`}`,
+			dateVal: differHours >= 1 ? differHours : differMinutes
+		}];
+		return differAry.find((item) => {
+			return item.dateVal > 0;
+		}) || '刚刚';
+	},
 	//	月前 day=时间格式遵守new Date格式即可 可以时间戳。识别当前月或者几个月前 超过十二个月自动识别几年前
 	fewCurrent(day) {
 		var time = day < 10000000000 ? new Date(day * 1000) : new Date(day);
@@ -75,7 +105,7 @@ var time={
 			curDateTime = curDateTime + "-0" + date;
 		return curDateTime
 	},
-	//根据生日获取年龄 可以时间戳 时间2018-01-02 getStrBirthday(date)
+	//根据生日获取年龄 可以时间戳 时间2018-01-02
 	getStrBirthday(strBirthday) {
 		var strBirthday;
 		if (strBirthday) {

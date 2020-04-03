@@ -94,7 +94,7 @@ var data={
 			JSON.parse(JSON.stringify(Obj)) :
 			('您的浏览器不支持 JSON API');
 	},
-	// 数组变成树形 id ,和父亲pid	filterTree(arryData);
+	// 数组变成树形 id ,和父亲pid
 	filterTree(data) {
 		let result = []
 		if (!Array.isArray(data)) {
