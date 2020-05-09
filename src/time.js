@@ -181,7 +181,12 @@ var time = {
 				return (yearForce + month + '月' + day + ' 周' + weekNum[week]);
 			}
 		}
-	}
+	},
+	timeWeek(data){
+		var day=new Date(data).getDay()||new Date().getDay();
+		var weekArry=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+		return weekArry[day]||''
+	},
 }
 
 export default time

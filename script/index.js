@@ -748,6 +748,70 @@ class gg {
 			return differAry.find((item) => {
 				return item.dateVal > 0;
 			}) || '刚刚';
-		}
+		},
+		// 获取星期几
+		timeWeek(data){
+			var day=new Date(data).getDay()||new Date().getDay();
+			var weekArry=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+			return weekArry[day]||''
+		},
+		judgmentRules(rule) {
+			if (!rule.type) {
+				rule.type = 'default';
+			}
+			if (rule.type == 'default') {
+				if (rule.data == "") {
+					return {
+						message: rule.message || (rule.name + '不能为空'),
+						type: false
+					}
+				} else {
+					return {
+						type: true
+					}
+				}
+			} else if (rule.type == 'phone') {
+				// 手机
+				const isMPRelaxed = value => /^(?:(?:\+|00)86)?1[3-9]\d{9}$/g.test(value);
+				if (!isMPRelaxed(rule.data)) {
+					return {
+						message: rule.message || '手机号码格式不正确',
+						type: false
+					}
+				} else {
+					return true
+				}
+			} else if (rule.type == 'email') {
+				// 邮箱
+				const isEmail = value =>
+					/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g
+					.test(value);
+				if (!isMPRelaxed(rule.email)) {
+					return {
+						message: rule.message || '邮箱格式不正确',
+						type: false
+					}
+				} else {
+					return true
+				}
+			} else if (rule.type == 'custom') {
+				const isRegular = value => rule.regular.test(value);
+				if (rule.data == "") {
+					return {
+						message: rule.message || (rule.name + '不能为空'),
+						type: false
+					}
+				} else if (!isRegular(rule.email)) {
+					return {
+						message: rule.message || (rule.name + '不能为空'),
+						type: false
+					}
+				} else {
+					return true
+				}
+			}
+		},
+		
+		
 }
 var hyPluginunit = new gg();
